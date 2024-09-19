@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cngo6x8godrg0"]
+[gd_scene load_steps=12 format=3 uid="uid://cngo6x8godrg0"]
 
 [ext_resource type="Texture2D" uid="uid://b2gm7chx0f4y" path="res://Assets/player.png" id="1_422t1"]
 [ext_resource type="Script" path="res://Scripts/Game Scene.gd" id="1_v2a0u"]
@@ -32,14 +32,12 @@ radius = 7.42831
 height = 19.8088
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sirgk"]
-size = Vector2(132.78, 20)
+size = Vector2(743.185, 37.2054)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0fgf"]
+size = Vector2(10.0051, 39.1048)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oara"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_csdbm"]
-size = Vector2(88.8908, 111.114)
 
 [node name="Game Scene" type="Node2D"]
 script = ExtResource("1_v2a0u")
@@ -63,13 +61,14 @@ shape = SubResource("CapsuleShape2D_w0agu")
 [node name="despawner" type="Area2D" parent="player"]
 
 [node name="despawnerarea" type="CollisionShape2D" parent="player/despawner"]
-position = Vector2(-1135.3, -11.7648)
+position = Vector2(-1145.91, -484.227)
 scale = Vector2(0.0347672, 54.9203)
 shape = SubResource("RectangleShape2D_sirgk")
 
 [node name="emergency area" type="CollisionShape2D" parent="player/despawner"]
-position = Vector2(-1300.01, 11.7648)
-scale = Vector2(-0.49672, 59.4206)
+position = Vector2(-1302.49, -555.843)
+rotation = 3.14159
+scale = Vector2(0.49672, -59.4206)
 shape = SubResource("RectangleShape2D_w0fgf")
 
 [node name="spawnobstaclestimer" type="Timer" parent="player"]
@@ -149,8 +148,6 @@ texture = ExtResource("5_18o4a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bombd"]
 position = Vector2(0.000244141, 11.1113)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_csdbm")
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="togglekillthingy" from="player" to="." method="_on_player_togglekillthingy"]

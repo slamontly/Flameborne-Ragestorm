@@ -1,8 +1,7 @@
-res://Scenes/global.tscn
-res://Scripts/Game Scene.gd
-res://Scenes/Game Scene.tscn
-res://Scripts/gameover.gd
-res://Scenes/waterdown.tscn
 res://Scenes/ventmid.tscn
+res://Scripts/ventmid.gd
+res://Scenes/Game Scene.tscn
+res://Scripts/water.gd
+res://Scenes/waterdown.tscn
 res://Scenes/killthingy.tscn
-res://Scripts/global.gd
+res://Scenes/global.tscn
