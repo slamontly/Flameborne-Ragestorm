@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dsilktlag2xpp"]
+
+[node name="gameover" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="restart" type="Button" parent="."]
+offset_left = -105.0
+offset_right = -24.0
+offset_bottom = 31.0
+scale = Vector2(2.52, 2.52)
+text = "Try Again"
+
+[node name="ulose" type="Label" parent="."]
+offset_left = -235.0
+offset_top = -149.0
+offset_right = 221.0
+offset_bottom = -39.0
+theme_override_font_sizes/font_size = 80
+text = "Game Over!"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,160 @@
+[gd_scene load_steps=13 format=3 uid="uid://cngo6x8godrg0"]
+
+[ext_resource type="Texture2D" uid="uid://b2gm7chx0f4y" path="res://Assets/player.png" id="1_422t1"]
+[ext_resource type="Script" path="res://Scripts/Game Scene.gd" id="1_v2a0u"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_yy807"]
+[ext_resource type="Script" path="res://Scripts/gameover.gd" id="4_31hna"]
+[ext_resource type="Texture2D" uid="uid://b8vglalp3jpbf" path="res://Assets/icon.svg" id="5_18o4a"]
+
+[sub_resource type="Animation" id="Animation_qqb7d"]
+resource_name = "death"
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.679996, 0.679996), Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ej1yh"]
+_data = {
+"death": SubResource("Animation_qqb7d")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w0agu"]
+radius = 7.42831
+height = 19.8088
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sirgk"]
+size = Vector2(132.78, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w0fgf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oara"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csdbm"]
+size = Vector2(88.8908, 111.114)
+
+[node name="Game Scene" type="Node2D"]
+script = ExtResource("1_v2a0u")
+
+[node name="player" type="CharacterBody2D" parent="."]
+z_index = 1
+position = Vector2(-300, 0)
+scale = Vector2(0.679996, 0.679996)
+script = ExtResource("1_yy807")
+
+[node name="dieanim" type="AnimationPlayer" parent="player"]
+libraries = {
+"": SubResource("AnimationLibrary_ej1yh")
+}
+
+[node name="playerhitbox" type="CollisionShape2D" parent="player"]
+position = Vector2(0, 23.5295)
+scale = Vector2(2.37566, 2.37566)
+shape = SubResource("CapsuleShape2D_w0agu")
+
+[node name="despawner" type="Area2D" parent="player"]
+
+[node name="despawnerarea" type="CollisionShape2D" parent="player/despawner"]
+position = Vector2(-1135.3, -11.7648)
+scale = Vector2(0.0347672, 54.9203)
+shape = SubResource("RectangleShape2D_sirgk")
+
+[node name="emergency area" type="CollisionShape2D" parent="player/despawner"]
+position = Vector2(-1300.01, 11.7648)
+scale = Vector2(-0.49672, 59.4206)
+shape = SubResource("RectangleShape2D_w0fgf")
+
+[node name="spawnobstaclestimer" type="Timer" parent="player"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="playersprite" type="Sprite2D" parent="player"]
+position = Vector2(0, -26.1323)
+scale = Vector2(0.0950323, 0.0950323)
+texture = ExtResource("1_422t1")
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(-300, 309)
+scale = Vector2(76.6577, -1.36585)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+shape = SubResource("RectangleShape2D_8oara")
+
+[node name="ceiling" type="StaticBody2D" parent="."]
+position = Vector2(-300, -337)
+scale = Vector2(76.7777, -1.36585)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling"]
+shape = SubResource("RectangleShape2D_8oara")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="score" type="Label" parent="."]
+z_index = 2
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -536.0
+offset_bottom = -301.0
+theme_override_font_sizes/font_size = 25
+text = "Score: "
+
+[node name="scoretimer" type="Timer" parent="."]
+wait_time = 0.75
+
+[node name="gameover" type="CanvasLayer" parent="."]
+script = ExtResource("4_31hna")
+
+[node name="Panel" type="Panel" parent="gameover"]
+offset_right = 1152.0
+offset_bottom = 640.0
+
+[node name="gameoverword" type="Label" parent="gameover"]
+offset_left = 384.0
+offset_top = 96.0
+offset_right = 711.0
+offset_bottom = 179.0
+theme_override_font_sizes/font_size = 60
+text = "Game Over"
+
+[node name="retry" type="Button" parent="gameover"]
+offset_left = 496.0
+offset_top = 368.0
+offset_right = 607.0
+offset_bottom = 431.0
+theme_override_font_sizes/font_size = 40
+text = "Retry"
+
+[node name="finalscore" type="Label" parent="gameover"]
+offset_left = 552.0
+offset_top = 216.0
+offset_right = 592.0
+offset_bottom = 239.0
+horizontal_alignment = 1
+
+[node name="bombd" type="StaticBody2D" parent="."]
+position = Vector2(1136, 272)
+scale = Vector2(0.359991, 0.359991)
+
+[node name="Sprite2D" type="Sprite2D" parent="bombd"]
+texture = ExtResource("5_18o4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bombd"]
+position = Vector2(0.000244141, 11.1113)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_csdbm")
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
+[connection signal="togglekillthingy" from="player" to="." method="_on_player_togglekillthingy"]
+[connection signal="area_entered" from="player/despawner" to="player" method="_on_despawner_area_entered"]
+[connection signal="timeout" from="player/spawnobstaclestimer" to="player" method="_on_spawnobstaclestimer_timeout"]
+[connection signal="timeout" from="scoretimer" to="." method="_on_scoretimer_timeout"]
+[connection signal="pressed" from="gameover/retry" to="gameover" method="_on_retry_pressed"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcj6ytxhnytta"]
+
+[ext_resource type="Texture2D" uid="uid://dnq1bk3fohna8" path="res://Assets/vent fan sketch1.png" id="1_lcbed"]
+[ext_resource type="Script" path="res://Scripts/ventmid.gd" id="1_s1pur"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dcugc"]
+radius = 7.24086
+
+[node name="ventmid" type="Area2D"]
+z_index = -1
+position = Vector2(1181, -7)
+scale = Vector2(0.64, 0.64)
+script = ExtResource("1_s1pur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(8.2, 7.59259)
+shape = SubResource("CircleShape2D_dcugc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5.02126, 5.02126)
+texture = ExtResource("1_lcbed")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

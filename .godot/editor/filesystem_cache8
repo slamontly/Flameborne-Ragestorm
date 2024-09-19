@@ -1,0 +1,24 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1726470870
+highscore.txt::TextFile::-1::1726124005::0::1::::<><>::
+::res://Assets/::1725554680
+icon.svg::CompressedTexture2D::4746388419985146123::1725432795::1725432879::1::::<><>::
+mcfire.png::CompressedTexture2D::2416086640180506998::1725433782::1725433824::1::::<><>::
+player.png::CompressedTexture2D::126314458667690398::1725433108::1725433448::1::::<><>::
+vent fan sketch1.png::CompressedTexture2D::8106328058778714637::1725552243::1725552243::1::::<><>::
+water.png::CompressedTexture2D::4406987547514630082::1725433446::1725433448::1::::<><>::
+::res://Scenes/::1726393808
+Game Scene.tscn::PackedScene::5698589258021822113::1726393808::0::1::::<><>::uid://b2gm7chx0f4y::::res://Assets/player.png<>res://Scripts/Game Scene.gd<>res://Scripts/player.gd<>res://Scripts/gameover.gd
+gameover.tscn::PackedScene::8439863018401452001::1725553392::0::1::::<><>::
+Ground.tscn::PackedScene::7435074561566022374::1726390857::0::1::::<><>::
+killthingy.tscn::PackedScene::718708317392829097::1726393808::0::1::::<><>::res://Scripts/killthingy.gd<>uid://baomugvmj1ffy::::res://Assets/mcfire.png
+ventmid.tscn::PackedScene::2547303890395722242::1726393808::0::1::::<><>::uid://dnq1bk3fohna8::::res://Assets/vent fan sketch1.png<>res://Scripts/ventmid.gd
+waterdown.tscn::PackedScene::1120095915221701656::1726393808::0::1::::<><>::uid://b311o83t2a8x7::::res://Assets/water.png<>res://Scripts/water.gd
+::res://Scripts/::1726393782
+Game Scene.gd::GDScript::-1::1726393781::0::1::::<>Node2D<>::
+gameover.gd::GDScript::-1::1726393756::0::1::::<>CanvasLayer<>::
+global.gd::GDScript::-1::1726392247::0::1::::<>Node<>::
+killthingy.gd::GDScript::-1::1726388783::0::1::::<>Area2D<>::
+player.gd::GDScript::-1::1726393125::0::1::::<>CharacterBody2D<>::
+ventmid.gd::GDScript::-1::1726393210::0::1::::<>Area2D<>::
+water.gd::GDScript::-1::1726390952::0::1::::<>Area2D<>::

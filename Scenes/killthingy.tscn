@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://kifayiyffx34"]
+
+[ext_resource type="Script" path="res://Scripts/killthingy.gd" id="1_r0npp"]
+[ext_resource type="Texture2D" uid="uid://baomugvmj1ffy" path="res://Assets/mcfire.png" id="1_tc5b2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wf0b"]
+
+[node name="killthingy" type="Area2D"]
+position = Vector2(-297, -8)
+scale = Vector2(2.88, 31.9956)
+script = ExtResource("1_r0npp")
+
+[node name="killzone" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2wf0b")
+
+[node name="mainfire" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.823529)
+position = Vector2(-0.347222, 8.2824)
+scale = Vector2(0.831643, 0.0748582)
+texture = ExtResource("1_tc5b2")
+
+[node name="bgfire" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.262745)
+z_index = -1
+position = Vector2(-0.694445, 1.03139)
+scale = Vector2(1.26389, 0.526323)
+texture = ExtResource("1_tc5b2")
